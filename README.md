@@ -1,6 +1,4 @@
-# Data Engineering Projects
-
-Real, mid-level data engineering projects by Pravat Adhikari — each one
+# Data Engineering projects
 built end to end, runnable, and demo-ready. Python, SQL, PySpark, Databricks,
 Delta Lake, dbt, Airflow, AWS, Azure.
 
