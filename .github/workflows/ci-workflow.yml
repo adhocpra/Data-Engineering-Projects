@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    paths:
+      - "01-etl-finance-pipeline/**"
+      - "03-dbt-airflow/**"
+      - ".github/workflows/ci.yml"
+  pull_request:
+    paths:
+      - "01-etl-finance-pipeline/**"
+      - "03-dbt-airflow/**"
+
+jobs:
+  project-1-etl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r 01-etl-finance-pipeline/requirements.txt
+      - name: Run pipeline
+        working-directory: 01-etl-finance-pipeline
+        run: python etl.py
+      - name: Run tests
+        working-directory: 01-etl-finance-pipeline
+        run: python -m pytest tests/ -q
+
+  project-3-dbt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r 03-dbt-airflow/requirements.txt
+      - name: Load raw data and build dbt models + tests
+        working-directory: 03-dbt-airflow
+        run: |
+          python scripts/load_raw.py
+          cd dbt_project && dbt build --profiles-dir .
