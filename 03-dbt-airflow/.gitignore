@@ -1,0 +1,10 @@
+warehouse.duckdb
+warehouse.duckdb.wal
+dbt_project/target/
+dbt_project/logs/
+dbt_project/dbt_packages/
+__pycache__/
+*.pyc
+.venv/
+airflow.db
+logs/

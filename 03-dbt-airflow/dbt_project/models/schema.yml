@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: int_clean_transactions
+    description: Valid, deduplicated transactions.
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: amount_usd
+        tests:
+          - not_null
+      - name: currency
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['USD', 'EUR', 'GBP']
+
+  - name: fct_transactions
+    description: Fact table of clean transactions.
+    columns:
+      - name: transaction_id
+        tests:
+          - unique
+          - not_null
+      - name: amount_usd
+        tests:
+          - not_null
+
+  - name: monthly_summary
+    description: Monthly aggregates for reporting.
+    columns:
+      - name: transaction_month
+        tests:
+          - unique
+          - not_null
+      - name: total_amount_usd
+        tests:
+          - not_null

@@ -10,8 +10,8 @@ ETL/ELT, data quality, and auditable, reproducible pipelines.
 
 ## What it does
 
-1. **Extract** — reads `data/transactions.csv` (raw source, 1,000 synthetic
-   transactions, last 180 days).
+1. **Extract** — reads `data/transactions.csv` (raw source, 100,000 synthetic
+   transactions, 24 months).
 2. **Validate** — fails the load, doesn't warn and carry on:
    - Completeness: no null `transaction_id`, `account_id`, `amount`, `posted_date`
    - Uniqueness: `transaction_id` is a real key, no duplicates
@@ -29,16 +29,30 @@ pip install -r requirements.txt
 python etl.py
 ```
 
-Expected output: `Loaded 1000 rows into transactions_clean` (or fewer if the
+Expected output: `Loaded 100000 rows into transactions_clean` (or fewer if the
 source has bad rows — they are quarantined to `data/quarantine.csv` and the
 run fails loudly instead of silently loading bad data).
+
+Verified local run (2026-11-16): 100,000 rows loaded, 4/4 quality checks
+passing, 24 months of history, $683,018,592.38 total, 18,038 high-value
+transactions. `pytest tests/` — 9 passed.
+
+## Tests
+
+`tests/test_etl.py` covers the validation gate (nulls, duplicates, negative
+amounts, bad currency, stale data all fail the load) and the transform
+(currency conversion to USD, high-value flag, month derivation). Every push
+runs `python etl.py` and `pytest` in GitHub Actions (`.github/workflows/ci.yml`
+at the repo root).
 
 ## Files
 
 - `etl.py` — the pipeline
 - `schema.sql` — warehouse tables
-- `data/transactions.csv` — raw source data (generated, synthetic)
-- `requirements.txt` — pandas only
+- `data/transactions.csv` — raw source data (generated, synthetic, 100,000 rows)
+- `scripts/generate_data.py` — regenerates the source data
+- `tests/test_etl.py` — pytest coverage for validation and transform
+- `requirements.txt` — pandas, pytest
 
 ## Why this matters
 

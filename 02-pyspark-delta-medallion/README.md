@@ -7,7 +7,7 @@ gate, transform once, load once.
 
 ## Layers
 
-- **Bronze** — raw CSV as-is, written as a Delta table. 1,000 rows.
+- **Bronze** — raw CSV as-is, written as a Delta table. 100,000 rows.
 - **Silver** — cleaned, typed, deduplicated on `transaction_id`, amounts
   converted to USD, `month` and `is_high_value` (>= $10,000) derived.
 - **Gold** — monthly summary (`month`, `transactions`, `total_usd`), the
@@ -27,8 +27,8 @@ python medallion.py          # Delta Lake (Databricks / Delta jars present)
 python medallion.py parquet  # Parquet (local run — see note below)
 ```
 
-Expected output (verified 2026-11-15, Parquet run): Bronze 1,000 rows,
-Silver 1,000 rows, Gold 7 months, Gold total $8,454,814.56 — all 8 gate
+Expected output (verified 2026-11-16, Parquet run): Bronze 100,000 rows,
+Silver 100,000 rows, Gold 24 months, Gold total $683,018,592.38 — all 8 gate
 checks PASS, matching Project 1 exactly.
 
 ## Delta Lake note — read this
@@ -47,4 +47,4 @@ Do not describe the local run as Delta Lake.
 - `requirements.txt` — pyspark, delta-spark
 - `lake/` — Delta tables, created on first run (not committed)
 - Data is reused from `../01-etl-finance-pipeline/data/transactions.csv`
-  (1,000 synthetic transactions, last 180 days)
+  (100,000 synthetic transactions, 24 months)

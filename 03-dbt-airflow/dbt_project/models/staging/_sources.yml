@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: raw
+    database: warehouse
+    schema: main
+    tables:
+      - name: raw_transactions
+        description: Raw financial transactions loaded from data/transactions.csv
+        columns:
+          - name: transaction_id
+            description: Source transaction id (may contain duplicates in raw data)
+          - name: transaction_date
+            description: Transaction date (YYYY-MM-DD)
+          - name: amount
+            description: Amount in the transaction currency (may be null or negative in raw data)
+          - name: currency
+            description: Currency code (USD, EUR, GBP; may contain bad codes in raw data)
+          - name: fx_rate
+            description: FX rate to USD
+          - name: merchant
+          - name: channel
+          - name: account_id
+          - name: status
