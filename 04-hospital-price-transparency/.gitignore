@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Local DuckDB warehouse (rebuilt by every run; the published artifacts
+# below are intentionally committed, not ignored)
+warehouse.duckdb
+warehouse.duckdb.wal
+
+# Local scratch
+*.tmp

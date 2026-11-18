@@ -1,0 +1,44 @@
+# Curated set of common shoppable procedures, by CPT code.
+# Every code below was verified two ways on 2026-11-17:
+#   1. it is a real, currently valid CPT code for the named procedure, and
+#   2. it actually appears in at least one hospital MRF parsed by this pipeline
+#      (see docs/verification.md for per-hospital counts).
+# A code that appears in no parsed MRF is dropped from this list with a note,
+# never kept on the strength of being "probably" present.
+procedures:
+  - cpt: "70553"
+    name: MRI brain with and without contrast
+    short_name: MRI brain
+    category: Imaging
+  - cpt: "74177"
+    name: CT abdomen and pelvis with contrast
+    short_name: CT abdomen/pelvis
+    category: Imaging
+  - cpt: "99213"
+    name: Office visit, established patient, level 3
+    short_name: Office visit
+    category: Evaluation & Management
+  - cpt: "27447"
+    name: Total knee arthroplasty
+    short_name: Total knee replacement
+    category: Surgery
+  - cpt: "43239"
+    name: Upper GI endoscopy with biopsy
+    short_name: Upper endoscopy (EGD)
+    category: Endoscopy
+  - cpt: "45378"
+    name: Diagnostic colonoscopy
+    short_name: Colonoscopy
+    category: Endoscopy
+  - cpt: "80053"
+    name: Comprehensive metabolic panel
+    short_name: Metabolic panel
+    category: Laboratory
+  - cpt: "93000"
+    name: ECG with interpretation
+    short_name: ECG
+    category: Cardiology
+    # NOTE (2026-11-17): 0 matches in the full scan of Memorial Hermann's
+    # 116,278-row file. Kept in the run so the other hospitals can confirm or
+    # refute it; if it appears in NO parsed MRF it is dropped from this list
+    # and moved to `dropped` below. Never display a procedure with no data.

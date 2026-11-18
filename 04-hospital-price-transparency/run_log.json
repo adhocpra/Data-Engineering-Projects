@@ -1,0 +1,441 @@
+{
+  "started_at_utc": "2026-11-18T05:18:05.583940+00:00",
+  "hospitals": {
+    "saint-francis-tulsa": {
+      "name": "Saint Francis Hospital",
+      "state": "OK",
+      "discovery": {
+        "method": "discovery",
+        "resolved_url": "https://saintfrancis.com/finance/sfh-cms-hpt",
+        "detail": "resolved via cms-hpt.txt (Saint Francis Hospital)"
+      },
+      "ingest": {
+        "source_url": "https://saintfrancis.com/finance/sfh-cms-hpt",
+        "format": "json",
+        "template_version": "3.0.0",
+        "file_last_updated": "2026-04-01",
+        "hospital_name_in_file": "Saint Francis Hospital Yale ",
+        "npi": "1144228487",
+        "state_in_file": "OK",
+        "bytes_total": 34889316,
+        "bytes_scanned": 34889316,
+        "rows_scanned": 32808,
+        "matched_items": 14,
+        "matched_rows": 14,
+        "cpt_counts": {
+          "80053": 2,
+          "74177": 2,
+          "43239": 2,
+          "70553": 2,
+          "93000": 2,
+          "99213": 2,
+          "27447": 1,
+          "45378": 1
+        },
+        "scan_complete": true,
+        "cap_hit": "",
+        "errors": []
+      },
+      "silver_rows": 42,
+      "status": "ok"
+    },
+    "norman-regional": {
+      "name": "Norman Regional Health System",
+      "state": "OK",
+      "discovery": {
+        "method": "discovery",
+        "resolved_url": "https://www.normanregional.com/documents/736048282_norman-regional-health-system_standardcharges.csv",
+        "detail": "resolved via cms-hpt.txt (Norman Regional Health System)"
+      },
+      "ingest": {
+        "source_url": "https://www.normanregional.com/documents/736048282_norman-regional-health-system_standardcharges.csv",
+        "format": "csv-tall",
+        "template_version": "2.2.0",
+        "file_last_updated": "2026-01-01",
+        "hospital_name_in_file": "Norman Regional Health System",
+        "npi": "",
+        "state_in_file": "OK",
+        "bytes_total": 5409532,
+        "bytes_scanned": 5409532,
+        "rows_scanned": 17776,
+        "matched_items": 6,
+        "matched_rows": 17,
+        "cpt_counts": {
+          "80053": 1,
+          "74177": 1,
+          "45378": 1,
+          "43239": 1,
+          "99213": 1,
+          "70553": 1
+        },
+        "scan_complete": true,
+        "cap_hit": "",
+        "errors": []
+      },
+      "silver_rows": 6,
+      "status": "ok"
+    },
+    "hillcrest-tulsa": {
+      "name": "Hillcrest Medical Center",
+      "state": "OK",
+      "discovery": {
+        "method": "discovery",
+        "resolved_url": "https://cdn.ardenthealthservices.com/price-transparency/77-0633896_AHS-Hillcrest-Medical-Center_standardcharges.csv",
+        "detail": "resolved via cms-hpt.txt (Hillcrest Medical Center)"
+      },
+      "ingest": {
+        "source_url": "https://cdn.ardenthealthservices.com/price-transparency/77-0633896_AHS-Hillcrest-Medical-Center_standardcharges.csv",
+        "format": "csv-tall",
+        "template_version": "3.0.0",
+        "file_last_updated": "3/31/2026",
+        "hospital_name_in_file": "AHS Hillcrest Medical Center, LLC",
+        "npi": "1629057229",
+        "state_in_file": "OK",
+        "bytes_total": 314423919,
+        "bytes_scanned": 314423919,
+        "rows_scanned": 730566,
+        "matched_items": 5,
+        "matched_rows": 114,
+        "cpt_counts": {
+          "43239": 1,
+          "45378": 1,
+          "70553": 1,
+          "74177": 1,
+          "80053": 1
+        },
+        "scan_complete": true,
+        "cap_hit": "",
+        "errors": []
+      },
+      "silver_rows": 114,
+      "status": "ok"
+    },
+    "memorial-hermann-memorial-city": {
+      "name": "Memorial Hermann Memorial City Medical Center",
+      "state": "TX",
+      "discovery": {
+        "method": "discovery",
+        "resolved_url": "https://memorialhermann.org/-/media/memorial-hermann/org/files/patients-and-visitors/cms-standard-hospital-charges/741152597_memorial-hermann-memorial-city-medical-center_standardcharges.ashx",
+        "detail": "resolved via cms-hpt.txt (Memorial Hermann Memorial City Medical Center)"
+      },
+      "ingest": {
+        "source_url": "https://memorialhermann.org/-/media/memorial-hermann/org/files/patients-and-visitors/cms-standard-hospital-charges/741152597_memorial-hermann-memorial-city-medical-center_standardcharges.ashx",
+        "format": "csv-tall",
+        "template_version": "3.0.0",
+        "file_last_updated": "2026-04-01",
+        "hospital_name_in_file": "Memorial Hermann Memorial City Medical Center",
+        "npi": "1740233782",
+        "state_in_file": "TX",
+        "bytes_total": 30701945,
+        "bytes_scanned": 30701945,
+        "rows_scanned": 116042,
+        "matched_items": 7,
+        "matched_rows": 49,
+        "cpt_counts": {
+          "80053": 1,
+          "74177": 1,
+          "70553": 1,
+          "43239": 1,
+          "45378": 1,
+          "99213": 1,
+          "27447": 1
+        },
+        "scan_complete": true,
+        "cap_hit": "",
+        "errors": []
+      },
+      "silver_rows": 43,
+      "status": "ok"
+    },
+    "houston-methodist": {
+      "name": "The Methodist Hospital",
+      "state": "TX",
+      "discovery": {
+        "method": "discovery",
+        "resolved_url": "https://www.houstonmethodist.org/-/media/files/patient-resources/74110155_the-methodist-hospital_standardcharges.ashx",
+        "detail": "resolved via cms-hpt.txt (Houston Methodist Hospital)"
+      },
+      "ingest": {
+        "source_url": "https://www.houstonmethodist.org/-/media/files/patient-resources/74110155_the-methodist-hospital_standardcharges.ashx",
+        "format": "json",
+        "template_version": "3.0.0",
+        "file_last_updated": "2026-04-01",
+        "hospital_name_in_file": "The Methodist Hospital",
+        "npi": "1548387418",
+        "state_in_file": "TX",
+        "bytes_total": 72060229,
+        "bytes_scanned": 72060229,
+        "rows_scanned": 29585,
+        "matched_items": 14,
+        "matched_rows": 14,
+        "cpt_counts": {
+          "80053": 2,
+          "74177": 2,
+          "45378": 2,
+          "43239": 2,
+          "99213": 2,
+          "70553": 2,
+          "27447": 1,
+          "93000": 1
+        },
+        "scan_complete": true,
+        "cap_hit": "",
+        "errors": []
+      },
+      "silver_rows": 108,
+      "status": "ok"
+    },
+    "parkland": {
+      "name": "Parkland Health",
+      "state": "TX",
+      "discovery": {
+        "method": "discovery",
+        "resolved_url": "https://www.parklandhealth.org/Uploads/Public/Documents/PDFs/Reports-Discolures/2026/price%20transparency/756004221_parkland-health_standardcharges.csv_10162026.zip",
+        "detail": "resolved via cms-hpt.txt (Parkland Health)"
+      },
+      "ingest": {
+        "source_url": "https://www.parklandhealth.org/Uploads/Public/Documents/PDFs/Reports-Discolures/2026/price%20transparency/756004221_parkland-health_standardcharges.csv_10162026.zip",
+        "format": "csv-tall",
+        "template_version": "3.0.0",
+        "file_last_updated": "2026-10-16",
+        "hospital_name_in_file": "Parkland Health",
+        "npi": "1932123247",
+        "state_in_file": "TX",
+        "bytes_total": 15568423,
+        "bytes_scanned": 15568423,
+        "rows_scanned": 1000001,
+        "matched_items": 7,
+        "matched_rows": 1640,
+        "cpt_counts": {
+          "27447": 1,
+          "43239": 1,
+          "45378": 1,
+          "74177": 1,
+          "70553": 1,
+          "80053": 1,
+          "99213": 1
+        },
+        "scan_complete": false,
+        "cap_hit": "max_rows",
+        "errors": []
+      },
+      "silver_rows": 584,
+      "status": "ok"
+    },
+    "ut-southwestern": {
+      "name": "William P Clements Jr University Hospital",
+      "state": "TX",
+      "discovery": {
+        "method": "discovery",
+        "resolved_url": "https://sthpiprd.blob.core.windows.net/machine-readable-files/10906/753175630_the-university-of-texas-southwestern-medical-center-at-dallas_standardcharges.csv",
+        "detail": "resolved via cms-hpt.txt (William P Clements Jr University Hospital)"
+      },
+      "ingest": {
+        "source_url": "https://sthpiprd.blob.core.windows.net/machine-readable-files/10906/753175630_the-university-of-texas-southwestern-medical-center-at-dallas_standardcharges.csv",
+        "format": "csv-tall",
+        "template_version": "3.0.0",
+        "file_last_updated": "2026-03-10",
+        "hospital_name_in_file": "The University of Texas Southwestern Medical Center at Dallas",
+        "npi": "1285798918",
+        "state_in_file": "TX",
+        "bytes_total": 1483795643,
+        "bytes_scanned": 272629760,
+        "rows_scanned": 1000001,
+        "matched_items": 6,
+        "matched_rows": 258,
+        "cpt_counts": {
+          "99213": 1,
+          "80053": 1,
+          "70553": 1,
+          "45378": 1,
+          "43239": 1,
+          "93000": 1
+        },
+        "scan_complete": false,
+        "cap_hit": "max_rows",
+        "errors": []
+      },
+      "silver_rows": 141,
+      "status": "ok"
+    },
+    "texas-health-allen": {
+      "name": "Texas Health Presbyterian Hospital Allen",
+      "state": "TX",
+      "discovery": {
+        "method": "discovery",
+        "resolved_url": "https://thrpricetransparency01.blob.core.windows.net/mrf/752890358_texas-health-presbyterian-hospital-allen_standardcharges.csv",
+        "detail": "resolved via cms-hpt.txt (Texas Health Presbyterian Hospital Allen)"
+      },
+      "ingest": {
+        "source_url": "https://thrpricetransparency01.blob.core.windows.net/mrf/752890358_texas-health-presbyterian-hospital-allen_standardcharges.csv",
+        "format": "csv-tall",
+        "template_version": "3.0.0",
+        "file_last_updated": "2026-04-15",
+        "hospital_name_in_file": "Texas Health Presbyterian Hospital Allen",
+        "npi": "1548291883",
+        "state_in_file": "TX",
+        "bytes_total": 1943091259,
+        "bytes_scanned": 265289728,
+        "rows_scanned": 1000001,
+        "matched_items": 8,
+        "matched_rows": 122,
+        "cpt_counts": {
+          "99213": 1,
+          "45378": 1,
+          "43239": 1,
+          "80053": 1,
+          "70553": 1,
+          "74177": 1,
+          "27447": 1,
+          "93000": 1
+        },
+        "scan_complete": false,
+        "cap_hit": "max_rows",
+        "errors": []
+      },
+      "silver_rows": 54,
+      "status": "ok"
+    },
+    "mayo-rochester": {
+      "name": "Mayo Clinic Hospital-Rochester",
+      "state": "MN",
+      "discovery": {
+        "method": "fallback",
+        "resolved_url": "https://mcorgstatic.blob.core.windows.net/cms-price/410944601_mayo-clinic-hospital-rochester_standardcharges.csv",
+        "detail": "discovery failed (HTTPError: 403 Client Error: Forbidden for url: https://www.mayoclinic.org/cms-hpt.txt); using recorded mrf_url"
+      },
+      "ingest": {
+        "source_url": "https://mcorgstatic.blob.core.windows.net/cms-price/410944601_mayo-clinic-hospital-rochester_standardcharges.csv",
+        "format": "csv-tall",
+        "template_version": "3.0.0",
+        "file_last_updated": "08/14/2026",
+        "hospital_name_in_file": "Mayo Clinic",
+        "npi": "1841266194",
+        "state_in_file": "MN",
+        "bytes_total": 13350569463,
+        "bytes_scanned": 419430400,
+        "rows_scanned": 926534,
+        "matched_items": 1,
+        "matched_rows": 482,
+        "cpt_counts": {
+          "27447": 1
+        },
+        "scan_complete": false,
+        "cap_hit": "max_bytes",
+        "errors": []
+      },
+      "silver_rows": 1,
+      "status": "ok"
+    },
+    "upmc-altoona": {
+      "name": "UPMC Altoona",
+      "state": "PA",
+      "discovery": {
+        "method": "discovery",
+        "resolved_url": "https://dam.upmc.com/-/media/upmc/locations/hospitals/documents/cdm-json-files/231352155_upmc-altoona_standardcharges.csv?",
+        "detail": "resolved via cms-hpt.txt (UPMC Altoona)"
+      },
+      "ingest": {
+        "source_url": "https://dam.upmc.com/-/media/upmc/locations/hospitals/documents/cdm-json-files/231352155_upmc-altoona_standardcharges.csv?",
+        "format": "csv-tall",
+        "template_version": "3.0.0",
+        "file_last_updated": "3/6/2026",
+        "hospital_name_in_file": "UPMC Altoona",
+        "npi": "1124185707",
+        "state_in_file": "PA",
+        "bytes_total": 88460252,
+        "bytes_scanned": 88460252,
+        "rows_scanned": 342181,
+        "matched_items": 7,
+        "matched_rows": 298,
+        "cpt_counts": {
+          "99213": 1,
+          "45378": 1,
+          "80053": 1,
+          "74177": 1,
+          "43239": 1,
+          "70553": 1,
+          "27447": 1
+        },
+        "scan_complete": true,
+        "cap_hit": "",
+        "errors": []
+      },
+      "silver_rows": 157,
+      "status": "ok"
+    }
+  },
+  "totals": {
+    "hospitals_attempted": 10,
+    "hospitals_ok": 10,
+    "silver_rows": 1250,
+    "gold_rows": 63,
+    "procedures_with_data": 8,
+    "sample_rows_written": 392,
+    "validation_errors": 0,
+    "validation_warnings": 6
+  },
+  "validation": [
+    {
+      "name": "required_fields_non_null",
+      "severity": "error",
+      "passed": 1250,
+      "failed": 0,
+      "examples": []
+    },
+    {
+      "name": "cpt_valid_5_digit_in_set",
+      "severity": "error",
+      "passed": 1250,
+      "failed": 0,
+      "examples": []
+    },
+    {
+      "name": "state_valid_us_code",
+      "severity": "error",
+      "passed": 1250,
+      "failed": 0,
+      "examples": []
+    },
+    {
+      "name": "npi_10_digits_when_present",
+      "severity": "error",
+      "passed": 1250,
+      "failed": 0,
+      "examples": []
+    },
+    {
+      "name": "npi_present",
+      "severity": "warning",
+      "passed": 1244,
+      "failed": 6,
+      "examples": [
+        "norman-regional: no NPI published in MRF",
+        "norman-regional: no NPI published in MRF",
+        "norman-regional: no NPI published in MRF"
+      ]
+    },
+    {
+      "name": "prices_positive_where_present",
+      "severity": "error",
+      "passed": 1250,
+      "failed": 0,
+      "examples": []
+    },
+    {
+      "name": "cash_le_gross",
+      "severity": "warning",
+      "passed": 1250,
+      "failed": 0,
+      "examples": []
+    },
+    {
+      "name": "negotiated_min_le_max",
+      "severity": "warning",
+      "passed": 1250,
+      "failed": 0,
+      "examples": []
+    }
+  ],
+  "finished_at_utc": "2026-11-18T05:25:48.360978+00:00"
+}

@@ -1,0 +1,143 @@
+# Hospital Price Transparency Pipeline
+# --------------------------------------
+# Each entry is resolved at run time from the hospital's cms-hpt.txt pointer
+# file (45 CFR 180.50). `mrf_url` is the verified fallback recorded on
+# 2026-11-17: if discovery fails, the run uses it and logs the fallback.
+# `scan` caps how much of a file is read: huge MRFs (1-13 GB) are sampled
+# from the top of the file and the partial coverage is reported honestly.
+# `full` means the whole file is read.
+#
+# States: OK = Oklahoma (user is in Oklahoma), TX = Texas (target market),
+# MN, OH, PA = national comparison hospitals.
+hospitals:
+  - id: saint-francis-tulsa
+    name: Saint Francis Hospital
+    city: Tulsa
+    state: OK
+    website_root: https://www.saintfrancis.com
+    location_match: Saint Francis Hospital
+    mrf_url: https://saintfrancis.com/finance/sfh-cms-hpt
+    format: json
+    scan: full
+
+  - id: norman-regional
+    name: Norman Regional Health System
+    city: Norman
+    state: OK
+    website_root: https://www.normanregional.com
+    location_match: Norman Regional Health System
+    mrf_url: https://www.normanregional.com/documents/736048282_norman-regional-health-system_standardcharges.csv
+    format: csv
+    scan: full
+
+  - id: hillcrest-tulsa
+    name: Hillcrest Medical Center
+    city: Tulsa
+    state: OK
+    website_root: https://hillcrest.com
+    location_match: Hillcrest Medical Center
+    mrf_url: https://cdn.ardenthealthservices.com/price-transparency/77-0633896_AHS-Hillcrest-Medical-Center_standardcharges.csv
+    format: csv
+    scan:
+      max_rows: 1000000
+      max_bytes: 419430400  # 400 MB
+
+  - id: memorial-hermann-memorial-city
+    name: Memorial Hermann Memorial City Medical Center
+    city: Houston
+    state: TX
+    website_root: https://memorialhermann.org
+    location_match: Memorial Hermann Memorial City Medical Center
+    mrf_url: https://memorialhermann.org/-/media/memorial-hermann/org/files/patients-and-visitors/cms-standard-hospital-charges/741152597_memorial-hermann-memorial-city-medical-center_standardcharges.csv
+    format: csv
+    scan: full
+
+  - id: houston-methodist
+    name: The Methodist Hospital
+    city: Houston
+    state: TX
+    website_root: https://www.houstonmethodist.org
+    location_match: Houston Methodist Hospital
+    mrf_url: https://www.houstonmethodist.org/-/media/files/patient-resources/74110155_the-methodist-hospital_standardcharges.ashx
+    format: json
+    scan: full
+
+  - id: parkland
+    name: Parkland Health
+    city: Dallas
+    state: TX
+    website_root: https://www.parklandhealth.org
+    location_match: Parkland Health
+    mrf_url: https://www.parklandhealth.org/Uploads/Public/Documents/PDFs/Reports-Discolures/2026/price%20transparency/756004221_parkland-health_standardcharges.csv_10162026.zip
+    format: zip_csv
+    scan:
+      max_rows: 1000000
+      max_bytes: 419430400  # 400 MB of decompressed CSV
+
+  - id: ut-southwestern
+    name: William P Clements Jr University Hospital
+    city: Dallas
+    state: TX
+    website_root: https://www.utswmed.org
+    location_match: William P Clements Jr University Hospital
+    mrf_url: https://sthpiprd.blob.core.windows.net/machine-readable-files/10906/753175630_the-university-of-texas-southwestern-medical-center-at-dallas_standardcharges.csv
+    format: csv
+    scan:
+      max_rows: 1000000
+      max_bytes: 419430400  # 400 MB
+
+  - id: texas-health-allen
+    name: Texas Health Presbyterian Hospital Allen
+    city: Allen
+    state: TX
+    website_root: https://www.texashealth.org
+    location_match: Texas Health Presbyterian Hospital Allen
+    mrf_url: https://thrpricetransparency01.blob.core.windows.net/mrf/752890358_texas-health-presbyterian-hospital-allen_standardcharges.csv
+    format: csv
+    scan:
+      max_rows: 1000000
+      max_bytes: 419430400  # 400 MB
+
+  - id: mayo-rochester
+    name: Mayo Clinic Hospital-Rochester
+    city: Rochester
+    state: MN
+    website_root: https://www.mayoclinic.org
+    location_match: Mayo Clinic Hospital-Rochester
+    mrf_url: https://mcorgstatic.blob.core.windows.net/cms-price/410944601_mayo-clinic-hospital-rochester_standardcharges.csv
+    format: csv
+    scan:
+      max_rows: 1000000
+      max_bytes: 419430400  # 400 MB
+
+  - id: upmc-altoona
+    name: UPMC Altoona
+    city: Altoona
+    state: PA
+    website_root: https://www.upmc.com
+    location_match: UPMC Altoona
+    mrf_url: https://dam.upmc.com/-/media/upmc/locations/hospitals/documents/cdm-json-files/231352155_upmc-altoona_standardcharges.csv?
+    format: csv
+    scan: full
+
+# Hospitals that were probed but NOT included, and why. Kept here so the
+# next run does not re-probe them blindly.
+excluded:
+  - name: OU Health University of Oklahoma Medical Center
+    state: OK
+    reason: "cms-hpt.txt resolves, but the Craneware MRF endpoint returns HTTP 404 (verified 2026-11-17)."
+  - name: INTEGRIS Health
+    state: OK
+    reason: "cms-hpt.txt blocked by Cloudflare (HTTP 403, verified 2026-11-17)."
+  - name: Baylor Scott & White
+    state: TX
+    reason: "No cms-hpt.txt at the website root (HTTP 404); pointer file lives elsewhere and was not resolved."
+  - name: Johns Hopkins Hospital
+    state: MD
+    reason: "cms-hpt.txt blocked by Cloudflare (HTTP 403, verified 2026-11-17)."
+  - name: SSM Health St. Anthony Hospital
+    state: OK
+    reason: "cms-hpt.txt host intermittently unreachable from this environment (proxy disconnects, verified 2026-11-17)."
+  - name: Cleveland Clinic Main Campus
+    state: OH
+    reason: "MRF is a 48.9 MB zip holding a 1.43 GB CSV; reachable, kept as a first alternate for a future run."
