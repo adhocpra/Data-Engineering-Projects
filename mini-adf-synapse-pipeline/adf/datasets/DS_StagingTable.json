@@ -1,0 +1,1 @@
+{"name":"DS_StagingTable","properties":{"description":"Staging table stg.standard_charges in the Synapse dedicated SQL pool.","linkedServiceName":{"referenceName":"LS_AzureSynapseAnalytics","type":"LinkedServiceReference"},"type":"AzureSqlDWTable","typeProperties":{"schema":"stg","table":"standard_charges"}}}
